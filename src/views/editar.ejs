@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="/css/styles.css" />
+    <title>Presupuesto</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="/"><i class="fa-solid fa-house fa-lg"></i></a>
+        <a href="#"><i class="fa-solid fa-rectangle-list fa-lg"></i></a>
+      </nav>
+    </header>
+    <section class="operaciones">
+      <h3>Modificación de entradas</h3>
+      <form action="/edit/" method="POST">
+        <label for="concepto"> Concepto </label>
+        <input id="concepto" type="text" placeholder="Luz" name="concepto">
+        <label for="monto"> Monto </label>
+        <input id="monto" type="text" inputmode="numeric" placeholder="100000" name="monto">
+        <label for="fecha"> Fecha </label>
+        <input id="fecha" type="date" name="fecha">
+        <label for="categoria"> Categoria </label>
+        <select id="categoria" name="categoria">
+          <option value="Casa">Casa</option>
+          <option value="Personal" selected>Personal</option>
+          <option value="Familia">Familia</option>
+        </select>
+        <label for="tipo"> Tipo </label>
+        <select id="tipo" name="tipo">
+          <option value="Ingreso" selected>Ingreso</option>
+          <option value="Egreso">Egreso</option>
+        </select>
+        <input type="submit" class="button" value="Modificar">
+      </form>
+      
+    </section>
+  </body>
+</html>
