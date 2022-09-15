@@ -6,6 +6,7 @@ const mainController = require(path.join(__dirname,'..','controllers','mainContr
 router.get('/', mainController.home);
 router.get('/crear', mainController.formCrear);
 router.post('/crear', mainController.crear);
-router.get('/editar', mainController.formEditar);
+router.get('/editar/:id', mainController.formEditar);
+router.put('/editar/:id', mainController.editar);
 
 module.exports = router;

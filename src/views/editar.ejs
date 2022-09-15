@@ -29,17 +29,17 @@
     </header>
     <section class="operaciones">
       <h3>Modificación de entradas</h3>
-      <form action="/edit/" method="POST">
+      <form action="/editar/<%= entrada.id %>?_method=PUT" method="POST">
         <label for="concepto"> Concepto </label>
-        <input id="concepto" type="text" placeholder="Luz" name="concepto">
+        <input id="concepto" type="text" placeholder="<%=entrada.concepto%>" name="concepto">
         <label for="monto"> Monto </label>
-        <input id="monto" type="text" inputmode="numeric" placeholder="100000" name="monto">
+        <input id="monto" type="text" inputmode="numeric" placeholder=<%=entrada.monto%> name="monto">
         <label for="fecha"> Fecha </label>
         <input id="fecha" type="date" name="fecha">
         <label for="categoria"> Categoria </label>
         <select id="categoria" name="categoria">
           <option value="Casa">Casa</option>
-          <option value="Personal" selected>Personal</option>
+          <option value="<%=entrada.categoria%>" selected><%=entrada.categoria%></option>
           <option value="Familia">Familia</option>
         </select>
         <label for="tipo"> Tipo </label>

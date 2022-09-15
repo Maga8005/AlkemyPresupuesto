@@ -1,17 +1,6 @@
 const db = require("../database/models");
 
 const mainController = {
-  // home: (req,res) =>{
-  //   db.presupuesto.findAll()
-  //   .then((presupuesto)=>{
-  //     if(!presupuesto) {
-  //       res.send('Error 404')
-  //     }else {
-  //       return res.render('index',{presupuesto})
-  //     }
-  //   })
-  // }
-
   home: (req, res) => {
     db.presupuesto.findAll().then((presupuesto) => {
       if (!presupuesto) {
@@ -51,7 +40,29 @@ const mainController = {
   },
 
   formEditar: (req,res)=>{
-    return res.render('editar')
+    db.presupuesto.findByPk(req.params.id)
+    .then((entrada)=>{
+      return res.render('editar', {entrada, old:req.body})
+      // res.send(entrada)
+    })
+    .catch(error=>console.error(error));
+  },
+
+  editar: (req,res)=>{
+    db.presupuesto.update({
+      concepto: req.body.concepto,
+      monto: req.body.monto,
+      fecha: req.body.fecha,
+      categoria: req.body.categoria,
+      tipo: req.body.tipo
+    },
+    {
+      where: {id: req.params.id}
+    })
+    .then(()=>{
+      return res.redirect('/')
+    })
+
   }
 };
 
