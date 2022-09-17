@@ -8,5 +8,7 @@ router.get('/crear', mainController.formCrear);
 router.post('/crear', mainController.crear);
 router.get('/editar/:id', mainController.formEditar);
 router.put('/editar/:id', mainController.editar);
+router.get('/lista', mainController.lista);
+router.delete('/lista/:id', mainController.delete);
 
 module.exports = router;

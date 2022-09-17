@@ -18,5 +18,6 @@ app.set("views", "./src/views");
 app.use('/', routes);
 app.use('/crear',routes);
 app.use('/editar',routes);
+app.use('/lista', routes);
 
 app.listen(port,() => console.log ("Server " + port + " ok"));

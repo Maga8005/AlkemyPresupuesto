@@ -24,7 +24,7 @@
     <header>
       <nav>
         <a href="/"><i class="fa-solid fa-house fa-lg"></i></a>
-        <a href="#"><i class="fa-solid fa-rectangle-list fa-lg"></i></a>
+        <a href="/lista"><i class="fa-solid fa-rectangle-list fa-lg"></i></a>
       </nav>
     </header>
     <section class="balance">
@@ -38,20 +38,19 @@
         <tr>
           <th>Concepto</th>
           <th>Monto</th>
-          <th id="fecha">Fecha</th>
+          <th class="fecha">Fecha</th>
           <th>Tipo</th>
         </tr>
         <% for (let i=0; i < presupuesto.length; i++) { %> <% if (i <= 9){%>
         <tr>
           <td><%= presupuesto[i].concepto %></td>
           <td><%= presupuesto[i].monto %></td>
-          <td id="fecha"><%= presupuesto[i].fecha %></td>
+          <td class="fecha"><%= presupuesto[i].fecha %></td>
           <td><%= presupuesto[i].tipo %></td>
         </tr>
         <% } %> <% } %>
       </table>
       <a id="verTotal" href="/lista">Ver total de registros</a>
-      <!-- <button type="button"><a href="/crear">Crear</a></button> -->
       <div class="button"><a href="/crear">Crear</a></div>
     </section>
   </body>

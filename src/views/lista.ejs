@@ -18,7 +18,7 @@
       referrerpolicy="no-referrer"
     />
     <link rel="stylesheet" href="/css/styles.css" />
-    <title>Presupuesto-Editar</title>
+    <title>Presupuesto-Listado</title>
   </head>
   <body>
     <header>
@@ -27,19 +27,13 @@
         <a href="/lista"><i class="fa-solid fa-rectangle-list fa-lg"></i></a>
       </nav>
     </header>
-    <section class="operaciones">
-      <h3>Modificación de entradas</h3>
-      <form action="/editar/<%= entrada.id %>?_method=PUT" method="POST">
-        <label for="concepto"> Concepto </label>
-        <input id="concepto" type="text" placeholder="<%=entrada.concepto%>" name="concepto">
-        <label for="monto"> Monto </label>
-        <input id="monto" type="text" inputmode="numeric" placeholder=<%=entrada.monto%> name="monto">
-        <label for="fecha"> Fecha </label>
-        <input id="fecha" type="date" name="fecha">
+    <section class="balance">
+      <h1>Listado de Operaciones</h1>
+      <form>
         <label for="categoria"> Categoria </label>
         <select id="categoria" name="categoria">
           <option value="Casa">Casa</option>
-          <option value="<%=entrada.categoria%>" selected><%=entrada.categoria%></option>
+          <option value="Personal" selected>Personal</option>
           <option value="Familia">Familia</option>
         </select>
         <label for="tipo"> Tipo </label>
@@ -47,9 +41,31 @@
           <option value="Ingreso" selected>Ingreso</option>
           <option value="Egreso">Egreso</option>
         </select>
-        <input type="submit" class="button" value="Modificar">
       </form>
-      
+    </section>
+    <section class="registros">
+      <h3>Registros</h3>
+      <table>
+        <tr>
+          <th>Concepto</th>
+          <th>Monto</th>
+          <th class="fecha">Fecha</th>
+          <th>Editar</th>
+        </tr>
+        <% for (let i=0; i < presupuesto.length; i++) { %> <%{%>
+        <tr>
+          <td><%= presupuesto[i].concepto %></td>
+          <td><%= presupuesto[i].monto %></td>
+          <td class="fecha"><%= presupuesto[i].fecha %></td>
+          <td class="editar">
+            <a href="/editar/<%= presupuesto[i].id %>"><i class="fa-solid fa-pen-to-square"></i></a>
+            <form class="eliminar" action="/lista/<%= presupuesto[i].id %>?_method=DELETE" method="POST">
+            <button type="submit" ><i class="fa-solid fa-trash-can"></i></button>
+          </form>
+          </td>
+        </tr>
+        <% } %> <% } %>
+      </table>
     </section>
   </body>
 </html>

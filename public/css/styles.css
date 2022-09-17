@@ -73,6 +73,36 @@ td {
   padding: 10px 0;
 }
 
+.editar {
+  display: flex;
+  justify-content: center;
+}
+
+.editar a{
+padding: 0 10px;
+cursor: pointer;
+}
+
+.editar a:hover{
+  color: #8F8F8F;
+}
+
+.editar button {
+  border: none;
+  background-color: #fff;
+  margin-left: 20px;
+  cursor: pointer;
+}
+
+.editar button:hover{
+  color: #8F8F8F;
+}
+
+.eliminar {
+  margin: 0;
+  width: auto;
+}
+
 #verTotal {
   color: rgb(25, 0, 255);
   font-size: 16px;
@@ -165,7 +195,7 @@ select{
 /************* Media Query ****************/
 
 @media (max-width: 600px){
-  #fecha {
+  .fecha {
     display: none;
   }
 }
