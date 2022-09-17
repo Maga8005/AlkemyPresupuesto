@@ -83,8 +83,8 @@ const mainController = {
         where: { id: req.params.id },
       })
       .then(() => {
-        res.send(presupuesto);
-        // return res.redirect('/lista');
+        // res.send(presupuesto);
+        return res.redirect('/lista');
       })
 
       .catch((err) => console.error(err));
