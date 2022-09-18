@@ -29,7 +29,8 @@
     </header>
     <section class="balance">
       <h1>Listado de Operaciones</h1>
-      <form>
+      
+      <form action="/lista/filtro?categoria=value&tipo=value" method="POST">
         <label for="categoria"> Categoria </label>
         <select id="categoria" name="categoria">
           <option value="Casa">Casa</option>
@@ -41,6 +42,7 @@
           <option value="Ingreso" selected>Ingreso</option>
           <option value="Egreso">Egreso</option>
         </select>
+        <button type="submit" value="Filtrar">Filtrar</button>
       </form>
     </section>
     <section class="registros">
@@ -52,7 +54,7 @@
           <th class="fecha">Fecha</th>
           <th>Editar</th>
         </tr>
-        <% for (let i=0; i < presupuesto.length; i++) { %> <%{%>
+      <% for (let i=0; i < presupuesto.length; i++) { %> <%{%> 
         <tr>
           <td><%= presupuesto[i].concepto %></td>
           <td><%= presupuesto[i].monto %></td>
@@ -67,5 +69,6 @@
         <% } %> <% } %>
       </table>
     </section>
+   
   </body>
 </html>

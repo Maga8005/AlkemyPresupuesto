@@ -77,6 +77,23 @@ const mainController = {
     });
   },
 
+  // filtro:(req,res)=>{
+  //   db.presupuesto.findAll(
+  //     {
+  //       where: { categoria: 'Personal', tipo: 'Ingreso' }
+  //     }
+  //   )
+  //   .then((presupuesto)=>{
+  //     if (!presupuesto) {
+  //       res.send("Error 404");
+  //     }
+  //     else {
+  //       // console.log(presupuesto.id)
+  //       return res.redirect('/lista', { presupuesto });
+  //     }
+  //   })
+  // },
+
   delete: (req, res) => {
     db.presupuesto
       .destroy({
@@ -89,6 +106,10 @@ const mainController = {
 
       .catch((err) => console.error(err));
   },
+  api: (req, res) => {
+    db.presupuesto.findAll()
+        .then(entradas => res.status(200).json(entradas))
+}
 };
 
 module.exports = mainController;
