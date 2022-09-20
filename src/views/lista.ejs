@@ -30,9 +30,10 @@
     <section class="balance">
       <h1>Listado de Operaciones</h1>
       
-      <form action="/lista/filtro?categoria=value&tipo=value" method="POST">
+      <form action="/lista/filtro" method="POST">
         <label for="categoria"> Categoria </label>
-        <select id="categoria" name="categoria">
+        <!-- Se envían los datos teniendo en cuenta el name ej: name="categoria" con el método POST  -->
+        <select id="categoria" name="categoria"> 
           <option value="Casa">Casa</option>
           <option value="Personal" selected>Personal</option>
           <option value="Familia">Familia</option>
@@ -42,7 +43,7 @@
           <option value="Ingreso" selected>Ingreso</option>
           <option value="Egreso">Egreso</option>
         </select>
-        <button type="submit" value="Filtrar">Filtrar</button>
+        <button class="filtrar" type="submit" value="Filtrar">Filtrar</button>
       </form>
     </section>
     <section class="registros">

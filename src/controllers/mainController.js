@@ -77,22 +77,22 @@ const mainController = {
     });
   },
 
-  // filtro:(req,res)=>{
-  //   db.presupuesto.findAll(
-  //     {
-  //       where: { categoria: 'Personal', tipo: 'Ingreso' }
-  //     }
-  //   )
-  //   .then((presupuesto)=>{
-  //     if (!presupuesto) {
-  //       res.send("Error 404");
-  //     }
-  //     else {
-  //       // console.log(presupuesto.id)
-  //       return res.redirect('/lista', { presupuesto });
-  //     }
-  //   })
-  // },
+  filtro:(req,res)=>{
+    db.presupuesto.findAll(
+      {
+        // Se atrapan los datos con req.body.name
+        where: { categoria: req.body.categoria, tipo: req.body.tipo }
+      }
+    )
+    .then((presupuesto)=>{
+      if (!presupuesto) {
+        res.send("Error 404");
+      }
+      else {
+        return res.render('lista', { presupuesto });
+      }
+    })
+  },
 
   delete: (req, res) => {
     db.presupuesto
